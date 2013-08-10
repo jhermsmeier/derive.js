@@ -1,6 +1,11 @@
 inherit.js
 ==========
 
+Yes, I know. Many have done or tried it before. 
+Still, this is make take on it, and it works for me.
+Just in case you should decide to use it, ping me on twitter. 
+I'm [@jhermsmeier](//twitter.com/jhermsmeier).
+
 ### Usage
 
 ```javascript
