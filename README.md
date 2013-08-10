@@ -6,12 +6,10 @@ inherit.js
 ```javascript
 // Your constructor function
 function Example() {
-  
   // Don't forget to call the
   // super's constructors
   EventEmitter.call( this )
   Array.call( this )
-  
 }
 ```
 
