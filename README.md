@@ -2,7 +2,7 @@ inherit.js
 ==========
 
 Yes, I know. Many have done or tried it before. 
-Still, this is make take on it, and it works for me. Consider it an experiment.
+Still, this is my take on it, and it works for me. Consider it an experiment.
 Just in case you should decide to use it, ping me on twitter. 
 I'm [@jhermsmeier](//twitter.com/jhermsmeier).
 
