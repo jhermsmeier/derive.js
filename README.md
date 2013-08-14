@@ -1,5 +1,5 @@
-inherit.js
-==========
+derive
+======
 
 Yes, I know. Many have done or tried it before. 
 Still, this is my take on it, and it works for me. Consider it an experiment.
@@ -33,7 +33,7 @@ Example.prototype = {
 // NOTE: With this inheriter function, even
 // the 'length' property keeps working when
 // inheriting from the Array constructor...
-inherit( Example, EventEmitter, Array )
+derive( Example, EventEmitter, Array )
 ```
 
 
@@ -46,7 +46,7 @@ inherit( Example, EventEmitter, Array )
  * @param  {Function} constructors..
  * @return {Object}   prototype
  */
-function inherit( ctor /*, supers.. */ ){
+function derive( ctor /*, supers.. */ ){
   
   var supers = [].slice.call( arguments )
   
