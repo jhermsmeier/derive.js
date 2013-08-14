@@ -4,7 +4,7 @@
  * @param  {Function} constructors..
  * @return {Object}   prototype
  */
-function inherit( ctor /*, supers.. */ ){
+function derive( ctor /*, supers.. */ ){
   
   var supers = [].slice.call( arguments )
   
@@ -22,4 +22,8 @@ function inherit( ctor /*, supers.. */ ){
     )
   })
   
+}
+
+if( typeof module !== 'undefined' ) {
+  module.exports = derive
 }
