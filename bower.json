@@ -1,0 +1,15 @@
+{
+  
+  "name": "derive",
+  "version": "1.0.0",
+  
+  "main": [
+    "derive.js"
+  ],
+  
+  "ignore": [],
+  
+  "dependencies": {},
+  "devDependencies": {}
+  
+}
