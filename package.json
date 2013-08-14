@@ -1,0 +1,30 @@
+{
+  
+  "name": "derive",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Multiple inheritance",
+  "keywords": [ "inherit", "extend", "class", "prototype" ],
+  
+  "author": {
+    "name": "Jonas Hermsmeier",
+    "email": "post@jhermsmeier.de",
+    "url": "http://jhermsmeier.de"
+  },
+  
+  "main": "derive",
+  
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha"
+  },
+  
+  "devDependencies": {
+    "mocha": ""
+  },
+  
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@bitbucket.org/jhermsmeier/derive.git"
+  }
+  
+}
