@@ -6,6 +6,11 @@ Still, this is my take on it, and it works for me. Consider it an experiment.
 Just in case you should decide to use it, ping me on twitter. 
 I'm [@jhermsmeier](//twitter.com/jhermsmeier).
 
+### Note
+
+**Have a look at the (currently primitive) tests to get a rough overview
+of what works, and what does not.**
+
 
 ## Install with [npm](https://npmjs.org)
 
