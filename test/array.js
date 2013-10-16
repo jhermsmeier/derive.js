@@ -1,7 +1,7 @@
 var assert = require( 'assert' )
 var derive = require( '../' )
 
-function Ctor() { Array.call( this ) }
+function Ctor() {}
 derive( Ctor, Array )
 
 var instance = new Ctor()
@@ -25,18 +25,11 @@ describe( 'inheritance from Array', function() {
     
     instance.length = 1
     assert.strictEqual( instance.length, 1 )
-    assert.strictEqual( instance[1], void 0 )
+    assert.strictEqual( instance[1], undefined )
     
     instance.push( 'item3' )
     assert.strictEqual( instance.length, 2 )
     assert.strictEqual( instance[1], 'item3' )
-    
-  })
-  
-  it( 'instance.slice() should be instance of Ctor', function() {
-    
-    var sliced = instance.slice()
-    assert.ok( sliced instanceof Ctor )
     
   })
   
