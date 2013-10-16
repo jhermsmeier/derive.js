@@ -48,41 +48,10 @@ Example.prototype = {
 }
 ```
 
+Inherit from what-the-fuck-ever you want. NOTE: With this inheriter function,
+even the 'length' property keeps working when inheriting from the Array constructor...
+It doesn't delete properties if set to something less than the length, though.
+
 ```javascript
-// Inherit from what-the-fuck-ever you want
-// NOTE: With this inheriter function, even
-// the 'length' property keeps working when
-// inheriting from the Array constructor...
 derive( Example, EventEmitter, Array )
-```
-
-
-### Source
-
-```javascript
-/**
- * Prototype inheriter capable of
- * nearly everything you ever wanted
- * @param  {Function} constructors..
- * @return {Object}   prototype
- */
-function derive( ctor /*, supers.. */ ){
-  
-  var supers = [].slice.call( arguments )
-  
-  supers.push( Object.prototype )
-  supers.reverse()
-  
-  return ctor.prototype = supers.reduce( function( proto, ctor ) {
-    return Object.create( proto,
-      Object.getOwnPropertyNames( ctor.prototype )
-        .reduce( function( desc, key ) {
-            desc[ key ] = Object.getOwnPropertyDescriptor( ctor.prototype, key )
-            return desc
-          }, Object.create( null )
-        )
-    )
-  })
-  
-}
 ```
