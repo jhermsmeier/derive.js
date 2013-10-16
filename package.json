@@ -1,9 +1,9 @@
 {
   
   "name": "derive",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "license": "MIT",
-  "description": "Multiple inheritance",
+  "description": "Multiple inheritance (well, sort of)",
   "keywords": [ "inherit", "extend", "class", "prototype" ],
   
   "author": {
