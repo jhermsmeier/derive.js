@@ -18,18 +18,24 @@ function derive( target /*, supers.. */ ) {
     .apply( [], derive.tree( ctors ) )
     .reverse()
   
-  return target.prototype = prototypes.reduce( function( current, next ) {
-    
-    var description = Object.getOwnPropertyNames( next )
-      .reduce( function( desc, key ) {
-        desc[ key ] = Object.getOwnPropertyDescriptor( next, key )
-        return desc
-      }, Object.create( null ))
-    
-    return Object.create( current, description )
-    
-  })
+  return target.prototype = prototypes
+    .reduce( function( current, next ) {
+      return Object.create( current, derive.describe( next ) )
+    })
   
+}
+
+/**
+ * Retrieves an object's description
+ * @param  {Object} object
+ * @return {Object} description
+ */
+derive.describe = function( object ) {
+  return Object.getOwnPropertyNames( object )
+    .reduce( function( desc, key ) {
+      desc[ key ] = Object.getOwnPropertyDescriptor( object, key )
+      return desc
+    }, Object.create( null ))
 }
 
 /**
