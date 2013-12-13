@@ -1,15 +1,25 @@
 derive [![NPM version](https://badge.fury.io/js/derive.png)](https://npmjs.org/derive)
 ======
 
-Yes, I know. Many have done or tried it before. 
-Still, this is my take on it, and it works for me. Consider it an experiment.
-Just in case you should decide to use it, ping me on twitter. 
-I'm [@jhermsmeier](//twitter.com/jhermsmeier).
+A utility to either *derive* from **multiple** super-constructors,
+or *inherit* from **one** super-constructor.
 
 ### Note
 
+You shouldn't rely on getters or setters with side effects
+(like the Array's `length` property) when deriving from native types.
+(You probably shouldn't derive or inherit from native types anyway)
+
+Also, the `instanceof` operator will not work as expected,
+because it checks if a prototype in the chain is equal to
+the prototype of the object it's being checked against - 
+which means it will return `false` for everything you've derived from.
+
+That's why it's called `derive`, not `inherit`.
+
 **Have a look at the (currently primitive) tests to get a rough overview
 of what works, and what does not.**
+
 
 
 ## Install with [npm](https://npmjs.org)
@@ -19,6 +29,7 @@ $ npm install derive
 ```
 
 
+
 ## Install with [bower](http://twitter.github.com/bower/)
 
 ```shell
@@ -26,7 +37,10 @@ $ bower install derive
 ```
 
 
+
 ### Usage
+
+**Deriving** from multiple super-constructors:
 
 ```javascript
 // Your constructor function
@@ -36,22 +50,31 @@ function Example() {
   EventEmitter.call( this )
   Array.call( this )
 }
-```
 
-```javascript
 // Your prototype
 Example.prototype = {
+  constructor: Example,
   get bla() { return 1 },
   method: function() {
     // ...
   }
 }
+
+derive( Example, EventEmitter, Array )
 ```
 
-Inherit from what-the-fuck-ever you want. NOTE: With this inheriter function,
-even the 'length' property keeps working when inheriting from the Array constructor...
-It doesn't delete properties if set to something less than the length, though.
+**Inheriting** from a super-constructor:
 
 ```javascript
-derive( Example, EventEmitter, Array )
+function Example() {
+  Emitter.call( this )
+}
+
+Example.prototype = derive.inherit( Emitter, {
+  constructor: Example,
+  get bla() { return 1 },
+  method: function() {
+    // ...
+  }
+})
 ```
