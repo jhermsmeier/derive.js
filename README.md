@@ -17,9 +17,6 @@ which means it will return `false` for everything you've derived from.
 
 That's why it's called `derive`, not `inherit`.
 
-**Have a look at the (currently primitive) tests to get a rough overview
-of what works, and what does not.**
-
 
 
 ## Install with [npm](https://npmjs.org)
