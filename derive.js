@@ -39,6 +39,19 @@ derive.describe = function( object ) {
 }
 
 /**
+ * Inherits from ctor to proto
+ * @param  {Function} ctor
+ * @param  {Object} proto
+ * @return {Object} 
+ */
+derive.inherit = function inherit( ctor, proto ) {
+  return Object.create(
+    ctor.prototype,
+    derive.describe( proto )
+  )
+}
+
+/**
  * Gets a prototype chain tree
  * @param  {Array} ctors
  * @return {Array} tree
