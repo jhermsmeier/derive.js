@@ -39,15 +39,15 @@ derive.describe = function( object ) {
 }
 
 /**
- * Inherits from ctor to proto
+ * Inherits from sctor to ctor
  * @param  {Function} ctor
- * @param  {Object} proto
+ * @param  {Function} sctor
  * @return {Object} 
  */
-derive.inherit = function inherit( ctor, proto ) {
-  return Object.create(
-    ctor.prototype,
-    derive.describe( proto )
+derive.inherit = function inherit( ctor, sctor ) {
+  ctor.prototype = Object.create(
+    sctor.prototype,
+    derive.describe( ctor.prototype )
   )
 }
 
