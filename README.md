@@ -67,11 +67,13 @@ function Example() {
   Emitter.call( this )
 }
 
-Example.prototype = derive.inherit( Emitter, {
+Example.prototype = {
   constructor: Example,
-  get bla() { return 1 },
-  method: function() {
+  set setter( value ) {},
+  method: function noop() {
     // ...
   }
-})
+}
+
+derive.inherit( Example, Emitter )
 ```
